@@ -14,3 +14,14 @@ body {
 #sidebar h1 {
     padding-left: 2rem;
 }
+
+#sidebar h5 {
+    padding-left: 2.5rem;
+}
+
+
+
+.btn-group {
+    display: inline-block;
+}
+

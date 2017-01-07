@@ -1,7 +1,10 @@
 <section>
     <div id="sidebar">
-        <h1>Bloc Chats</h1>
-        <h5 ng-repeat="room in Main.rooms"></h5>
+        <h1>Bloc Chats
+            <ng-include src="'/templates/modal.html'"></ng-include>
+        </h1>
+        
+        <h5 ng-repeat="room in main.rooms">{{ room.$value }}</h5>
     </div>
 </section>
 

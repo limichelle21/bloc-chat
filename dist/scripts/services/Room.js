@@ -7,9 +7,19 @@
 @type {object}
 */
     var rooms = $firebaseArray(ref);
+
+      
+/**
+@desc public function addRoom
+@desc add a room to the database
+@param {object} room
+*/
+    var addRoom = function(room) {
+        rooms.$add({"name": room});
+    };
       
       
-      
+
     return {
         all: rooms
     }; 
