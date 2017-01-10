@@ -6,6 +6,11 @@
         
         <h5 ng-repeat="room in main.rooms">{{ room.$value }}</h5>
     </div>
+    
+    <div id="messages">
+        <ng-include src="'/templates/messages.html'"></ng-include>
+    </div>
+
 </section>
 
 

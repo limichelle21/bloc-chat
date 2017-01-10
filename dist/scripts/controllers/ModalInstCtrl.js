@@ -1,22 +1,31 @@
 (function() {
-    function ModalInstCtrl() {
+    function ModalInstCtrl($uibModal, $uibModalInst, $scope) {
         
-        this.create = function () {
-            /**
-            save a room name to firebase, close modal window
-            close(result) - close and pass a result
-            */
-        }
+        $scope.newRoom = "";
         
-        this.cancel 
-            /**
-            close window without save
-            dismiss(reason) - close and pass a reason
-            */
-        }
+/**
+@method
+@desc saves a new instance of Room and close the modal window
+param (room)
+*/
+        $scope.createRoom = function(room) {
+            var newRoom = Room.addRoom(room);
+            $uibModalInst.close(newRoom);
+        };
+
+/**
+@method
+@desc close the modal window without save
+*/
+        $scope.cancel = function() {
+            $uibModalInst.dismiss('cancel');
+        };
+            
     };
+    
+        
     
     angular
         .module('blocChat')
-        .controller('ModalInstCtrl', [ModalInstCtrl]);
+        .controller('ModalInstCtrl', ['$scope', 'Room', '$uibModal', ModalInstCtrl,]);
 })();
