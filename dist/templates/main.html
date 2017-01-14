@@ -1,10 +1,9 @@
 <section>
     <div id="sidebar">
         <h1>Bloc Chats
-            <ng-include src="'/templates/modal.html'"></ng-include>
         </h1>
-        
-        <h5 ng-repeat="room in main.rooms">{{ room.$value }}</h5>
+        <button type="button" class="btn btn-md btn-default" ng-click="main.open()">Create Room</button>
+        <h5 ng-repeat="room in main.rooms" ng-click="main.setRoom(room)">{{ room.name }}</h5>
     </div>
     
     <div id="messages">

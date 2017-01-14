@@ -10,20 +10,24 @@
 
       
 /**
-@desc public function addRoom
+@desc private function addRoom, return them in an object
 @desc add a room to the database
 @param {object} room
 */
-    Room.addRoom = function(room) {
+    var addRoom = function(room) {
         rooms.$add({"name": room});
     };
       
-    Room.deleteRoom = function(room) {
+    var deleteRoom = function(room) {
         rooms.$remove(room);
     };  
+      
+      
 
     return {
-        all: rooms
+        all: rooms,
+        addRoom: addRoom,
+        deleteRoom: deleteRoom
     }; 
   }
 
