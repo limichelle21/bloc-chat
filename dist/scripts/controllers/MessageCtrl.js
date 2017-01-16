@@ -1,8 +1,18 @@
-/** add message function **/ 
 
-access list of messages
-access messages of current room 
+//function to "send" new message
 
-can access all variables / functions in Main Ctrl 
 
-ref.orderByChild('room Id').equalTo('room')
+(function() {
+    function MessageCtrl(Message) {
+                
+        
+        this.sendMessage = function(newMessage) {
+            Message.send(newMessage);
+        };
+        
+    };
+    
+    angular
+        .module('blocChat')
+        .controller('MessageCtrl', ['Message', MessageCtrl]);
+})();

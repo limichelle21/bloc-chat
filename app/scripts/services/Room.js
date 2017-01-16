@@ -14,15 +14,14 @@
 @desc add a room to the database
 @param {object} room
 */
-    var addRoom = function(room) {
-        rooms.$add({"name": room});
+    var addRoom = function(roomName) {
+        rooms.$add({name: roomName});
     };
       
     var deleteRoom = function(room) {
         rooms.$remove(room);
     };  
-      
-      
+         
 
     return {
         all: rooms,

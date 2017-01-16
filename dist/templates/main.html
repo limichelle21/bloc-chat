@@ -1,15 +1,20 @@
 <section>
-    <div id="sidebar">
-        <h1>Bloc Chats
-        </h1>
+    <div class="room-sidebar">
+        <h1>Bloc Chat</h1>
         <button type="button" class="btn btn-md btn-default" ng-click="main.open()">Create Room</button>
-        <h5 ng-repeat="room in main.rooms" ng-click="main.setRoom(room)">{{ room.name }}</h5>
+        <div class="room-list" ng-repeat="room in main.rooms">
+            <div ng-click="main.setRoom(room.$id, room.name)">
+                <div class="room-name" ng-value="room.name">{{ room.name }}</div>
+            </div>
+        </div> 
     </div>
-    
-    <div id="messages">
+</section>
+
+<section>    
+    <div class="room-messages">
+        <div class="room-title">{{ currentRoom.name }} - Messages</div>
         <ng-include src="'/templates/messages.html'"></ng-include>
     </div>
-
 </section>
 
 

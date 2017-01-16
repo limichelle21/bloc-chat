@@ -2,22 +2,29 @@ body {
     font-family: 'Open Sans'
 }
 
-#sidebar {
+.room-sidebar {
     position: absolute;
     top: 0; 
     bottom: 0; 
     left: 0;
     width: 25%;
     background: #D3D3D3;
+  
 }
 
-#sidebar h1 {
+.room-sidebar h1 {
     padding-left: 2rem;
 }
 
-#sidebar h5 {
+.room-sidebar .room-list {
     padding-left: 2.5rem;
 }
 
 
+.room-messages {
+    float: right;
+    width: 75%;
+    display: inline-block;
+    box-sizing: border-box;
+}
 
