@@ -1,20 +1,24 @@
 <section>
     <div class="room-sidebar">
-        <h1>Bloc Chat</h1>
-        <button type="button" class="btn btn-md btn-default" ng-click="main.open()">Create Room</button>
-        <div class="room-list" ng-repeat="room in main.rooms">
-            <div ng-click="main.setRoom(room.$id, room.name)">
-                <div class="room-name" ng-value="room.name">{{ room.name }}</div>
-            </div>
+       <div class="container">
+            <h1>Bloc Chat</h1>
+            <button type="button" class="btn btn-md btn-default" ng-click="main.open()">Create Room</button>
+            <div class="room-list" ng-repeat="room in main.rooms">
+                <div ng-click="main.setRoom(room)">
+                    <div class="room-name" ng-value="room.name">{{ room.name }}</div>
+                </div>
+            </div> 
         </div> 
     </div>
 </section>
 
 <section>    
     <div class="room-messages">
-        <div class="room-title">{{ currentRoom.name }} - Messages</div>
+        <div class="room-title"><h1>{{ main.currentRoom.name }}</h1></div>
         <ng-include src="'/templates/messages.html'"></ng-include>
-    </div>
+        </div> 
+   
 </section>
+
 
 

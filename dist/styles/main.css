@@ -21,6 +21,12 @@ body {
 }
 
 
+.btn btn-md .btn-default {
+    padding-left: 2.5rem;
+}
+
+
+
 .room-messages {
     float: right;
     width: 75%;

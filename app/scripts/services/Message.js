@@ -2,7 +2,6 @@
 // a send function needs to add a new message to firebase using the required keys/values
 
 
-
 (function() {
   function Message($firebaseArray, Room) {
     var ref = firebase.database().ref().child("messages");
@@ -18,8 +17,8 @@
 search for all messages with a given room ID and store in messages Variable
 */
     var getByRoomId = function(roomId) {
-        ref.orderByChild('roomId').equalTo('room');
-        messages = $firebaseArray(ref);
+        var messagesRef = ref.orderByChild('roomID').equalTo(roomId);
+        messages = $firebaseArray(messagesRef);
         return messages;
     }; 
       
@@ -29,12 +28,12 @@ search for all messages with a given room ID and store in messages Variable
 @desc adds a message to the database
 @param {object} message
 */
-    var send = function(newMessage) {
+    var send = function(newMessage, roomId) {
        messages.$add({
                 username: "current user",
                 content: newMessage,
                 sentAt: Date.now(),
-                roomId: Room.roomID
+                roomID: roomId
             });
     };
       

@@ -5,6 +5,7 @@
         this.currentRoom = "";
         this.messages = "";
         this.activeRoom = false;
+        this.content = "";
     
     
         this.open = function() {
@@ -15,10 +16,16 @@
                 });
         };
                 
-        this.setRoom = function(roomId, room) {
+        this.setRoom = function(room) {
             this.currentRoom = room;
-            this.messages = Message.getByRoomId(room);
+            this.messages = Message.getByRoomId(room.$id);
             this.activeRoom = true;
+        };
+        
+        
+        this.sendMessage = function() {
+            Message.send(this.content, this.currentRoom.$id);
+            this.content = "";
         };
 
     };
@@ -29,4 +36,3 @@
         .controller('MainCtrl', ['Room', 'Message', '$uibModal', MainCtrl]);
 })();
 
-// adding the Message service seems to cause a problem in displaying rooms/creating rooms
