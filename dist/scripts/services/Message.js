@@ -3,7 +3,7 @@
 
 
 (function() {
-  function Message($firebaseArray, Room) {
+  function Message($firebaseArray, $cookies, Room) {
     var ref = firebase.database().ref().child("messages");
       
 /**
@@ -30,7 +30,7 @@ search for all messages with a given room ID and store in messages Variable
 */
     var send = function(newMessage, roomId) {
        messages.$add({
-                username: "current user",
+                username: $cookies.blocChatCurrentUser,
                 content: newMessage,
                 sentAt: Date.now(),
                 roomID: roomId
@@ -46,5 +46,5 @@ search for all messages with a given room ID and store in messages Variable
 
   angular
     .module('blocChat')
-    .factory('Message', ['$firebaseArray', 'Room', Message]);
+    .factory('Message', ['$firebaseArray', '$cookies', 'Room', Message]);
 })();
