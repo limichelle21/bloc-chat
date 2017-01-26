@@ -1,20 +1,23 @@
 (function() {
     function UserModalCtrl($uibModalInstance, $cookies) {
-    
-        this.newUsername = "";
- 
+
 /**
 @method
 @desc saves a new User and close the modal window
 param (name)
 */
         this.setUsername = function() {
-            $cookies.put('blocChatCurrentUser', newUsername);
-            $uibModalInstance.close();
+            if (this.newUsername && this.newUsername !== '') {
             
-        };
+                $cookies.blocChatCurrentUser = this.newUsername;
 
-    };
+                $uibModalInstance.close();
+            } else {
+                alert("Please enter your username")
+                }
+            };
+        }
+    
     
 /* need to prevent blank text area from saving */    
     

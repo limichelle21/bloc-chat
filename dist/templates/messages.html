@@ -3,6 +3,7 @@
     <table class="table-striped table-responsive">
         <tr ng-repeat="message in main.messages">
             <td>{{ message.content }}</td>
+            <td>{{ message.username }}</td>
             <td>{{ message.sentAt | date:"short" }}</td>
         </tr>
     </table>

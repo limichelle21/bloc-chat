@@ -7,7 +7,7 @@
             $uibModal.open({
               // require user to enter a user name, no cancel allowed
                 templateUrl: '/templates/usermodal.html',
-                controller: 'UserModalCtrl', 
+                controller: 'UserModalCtrl',
                 controllerAs: 'user',
                 size: 'sm',
                 backdrop: 'static',
