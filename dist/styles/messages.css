@@ -1,0 +1,43 @@
+.message-box {
+    height: 500px;
+    display: flex;
+}
+
+
+
+.message-list {
+    flex: 1;
+    overflow: auto;
+    background-color: #bf246f;
+    color: white;
+    list-style: none;
+    border-radius: 5px;
+}
+
+.message-item {
+    list-style: none:
+}
+
+.user {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.message-form {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.message-content {
+    width: 70%;
+}
+
+.message-username {
+    width: 20%;
+}
+
+.message-time {
+    width: 10%;
+}

@@ -1,19 +1,23 @@
-
-<div class="container">
-    <table class="table-striped table-responsive">
-        <tr ng-repeat="message in main.messages">
-            <td>{{ message.content }}</td>
-            <td>{{ message.username }}</td>
-            <td>{{ message.sentAt | date:"short" }}</td>
-        </tr>
-    </table>
+<!-- want scroll on this div only -->
+<div class="message-box container-fluid">
+    <ul class="message-list">
+        <li class="message-item" ng-repeat="message in main.messages">
+            <span class="user">{{ message.username }}</span>
+            <p><span class="glyphicon glyphicon-time"></span>{{ message.sentAt | date:"short" }} <br>
+            {{ message.content }}
+            </p>
+        </li>
+    </ul>
 </div>
-<div>
+
+
+
+
+<div class="message-form">
     <div class="form-group">
         <label for="message">Message:</label>
-        <textarea class="form-control" rows="4" id="message" ng-model="main.content"></textarea>
-        <button type="submit" class="btn btn-success btn-sm" ng-click="main.sendMessage()">Send Message</button>
+        <textarea class="form-control" rows="4" id="message" ng-model="main.content" placeholder="Type your message"></textarea>
+        <button type="submit" class="btn btn-success btn-sm" ng-click="main.sendMessage()"><span class="glyphicon glyphicon-send"></span> Send Message</button>
     </div>
 </div>
-
 

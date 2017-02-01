@@ -1,15 +1,21 @@
 body {
-    font-family: 'Open Sans'
+    font-family: 'Open Sans';
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
 }
 
 .room-sidebar {
-    position: absolute;
+    position: fixed;
+    z-index: 1;
     top: 0; 
-    bottom: 0; 
     left: 0;
-    width: 25%;
-    background: #D3D3D3;
-  
+    width: 0;
+    height: 100%;
+    background: #ffc1d8;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
 }
 
 .room-sidebar h1 {
@@ -18,19 +24,71 @@ body {
 
 .room-sidebar .room-list {
     padding-left: 2.5rem;
+    padding: 8px 8px 8px 24px;
+    font-size: 15px;
+    color: black;
+    display: block;
+    transition: 0.3s;
 }
 
 
-.btn btn-md .btn-default {
-    padding-left: 2.5rem;
+.room-sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 30px;
+    margin-left: 40px;
+    text-decoration: none;
 }
 
 
+.room-default {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 50px;
+    vertical-align: middle;
+    height: 40px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+
+.room-name {
+    cursor: pointer;
+}
+
+
+.btn-default {
+    background-color: #b71478;
+    color: white;
+    font-weight: bold;
+    margin-left: 2rem;
+}
 
 .room-messages {
     float: right;
-    width: 75%;
+    width: 70%;
     display: inline-block;
     box-sizing: border-box;
+    padding: 20px;
 }
+
+
+@media only screen and (max-width: 710px) {
+    .room-sidebar {
+        width: 200px;
+    }
+}
+
+@media screen and (max-height: 450ps) {
+    .room-sidebar {padding-top: 15px;}
+    .room-sidebar .room-list {font-size: 18px;}
+}
+
+
+
+
 

@@ -24,8 +24,10 @@
         
         
         this.sendMessage = function() {
-            Message.send(this.content, this.currentRoom.$id);
-            this.content = "";
+            if (this.content) {
+                Message.send(this.content, this.currentRoom.$id);
+                this.content = "";
+            }
         };
 
     };
