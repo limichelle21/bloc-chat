@@ -1,9 +1,14 @@
+* {
+    border: 1px solid red !important;
+}
+
 body {
     font-family: 'Open Sans';
     flex-direction: column;
     position: absolute;
     width: 100%;
 }
+
 
 .room-sidebar {
     position: fixed;
@@ -45,9 +50,9 @@ body {
 .room-default {
     font-size: 30px;
     cursor: pointer;
-    padding: 50px;
     vertical-align: middle;
-    height: 40px;
+    padding-left: 5rem;
+    width: 25%;
 }
 
 #main {
@@ -83,7 +88,7 @@ body {
     }
 }
 
-@media screen and (max-height: 450ps) {
+@media screen and (max-height: 450px) {
     .room-sidebar {padding-top: 15px;}
     .room-sidebar .room-list {font-size: 18px;}
 }

@@ -3,7 +3,7 @@
 
 
 (function() {
-  function Message($firebaseArray, $cookies, Room) {
+  function Message($firebaseArray, $cookies, Room, Authentication) {
     var ref = firebase.database().ref().child("messages");
       
 /**
@@ -21,21 +21,23 @@ search for all messages with a given room ID and store in messages Variable
         messages = $firebaseArray(messagesRef);
         return messages;
     }; 
-      
-      
+    
 /**
 @desc private function send
 @desc adds a message to the database
 @param {object} message
 */
     var send = function(newMessage, roomId) {
+        console.log(Authentication.currentUser.email);
        messages.$add({
-                username: $cookies.blocChatCurrentUser,
+                username: Authentication.currentUser.email,
                 content: newMessage,
                 sentAt: Date.now(),
                 roomID: roomId
             });
     };
+      
+/** Authentication.firebaseUser is undefined in the Message.send function. h*/      
       
 
     return {
@@ -46,5 +48,5 @@ search for all messages with a given room ID and store in messages Variable
 
   angular
     .module('blocChat')
-    .factory('Message', ['$firebaseArray', '$cookies', 'Room', Message]);
+    .factory('Message', ['$firebaseArray', '$cookies', 'Room', 'Authentication', Message]);
 })();

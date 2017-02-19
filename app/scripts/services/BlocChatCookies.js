@@ -9,7 +9,7 @@
                 templateUrl: '/templates/usermodal.html',
                 controller: 'UserModalCtrl',
                 controllerAs: 'user',
-                size: 'sm',
+                size: 'md',
                 backdrop: 'static',
                 keyboard: false
             })

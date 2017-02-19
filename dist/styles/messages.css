@@ -3,8 +3,6 @@
     display: flex;
 }
 
-
-
 .message-list {
     flex: 1;
     overflow: auto;
