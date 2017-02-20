@@ -1,5 +1,5 @@
 (function() {
-    function UserModalCtrl($uibModalInstance, $cookies, Authentication) {
+    function UserModalCtrl($uibModalInstance, $cookies, User) {
 
 /**
 @method
@@ -14,26 +14,31 @@ param (name)
                 alert("Please enter your username")
             }
         };
-        
-      
+           
         
         this.signUp = function() {
           console.log("signed up " + this.email1);
-          Authentication.signUpWithEmail(this.email1, this.password1);
-          $cookies.blocChatCurrentUser = this.email1;
-          $uibModalInstance.close();
+          User.signUpWithEmail(this.email1, this.password1);
+            
+          $cookies.blocChatCurrentUser = firebase.auth().currentUser;
+            
+          console.log($cookies.blocChatCurrentUser); // returns the last signed in user, not currently signed up user
+            
+            $uibModalInstance.close();
         }
 
 
         this.signIn = function() {
           console.log("signed in " + this.email2);
-          Authentication.signInWithEmail(this.email2, this.password2);
-          $cookies.blocChatCurrentUser = this.email2;
-          $uibModalInstance.close();
+          User.signInWithEmail(this.email2, this.password2);
+          
+            $cookies.blocChatCurrentUser = firebase.auth().currentUser;
+          
+            $uibModalInstance.close();
         }
 
         this.signOut = function() {
-          Authentication.signOut();
+          User.signOut();
         }
     
       }
@@ -41,6 +46,6 @@ param (name)
         
     angular
         .module('blocChat')
-        .controller('UserModalCtrl', ['$uibModalInstance', '$cookies', 'Authentication', UserModalCtrl]);
+        .controller('UserModalCtrl', ['$uibModalInstance', '$cookies', 'User', UserModalCtrl]);
 })();
 

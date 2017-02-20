@@ -1,6 +1,6 @@
-<section class="container-fluid">
-    <section class="row">
-        <section class="col-md-4">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
             <div id="sideNav" class="room-sidebar">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">X</a>
                 <h1>Bloc Chat</h1>
@@ -12,15 +12,15 @@
                 </div> 
             </div>
             <span class="room-default" onclick="openNav()">Click Here</span>
-        </section>
+        </div>
 
-        <section class="col-md-8">
+        <div class="col-md-8">
             <div id="main" class="room-messages">
                 <div class="room-title"><h1>{{ main.currentRoom.name }}</h1></div>
                 <ng-include src="'/templates/messages.html'"></ng-include>
             </div> 
-        </section>
-    </section>
-</section>
+        </div>
+    </div>
+</div>
 
 
