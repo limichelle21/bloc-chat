@@ -1,5 +1,5 @@
 (function() {
-    function MainCtrl(Room, Message, $uibModal, $cookies) {
+    function MainCtrl(Room, Message, $uibModal, $cookies, User) {
         
         this.rooms = Room.all;
         this.currentRoom = "";
@@ -29,12 +29,16 @@
                 this.content = "";
             }
         };
+        
+        this.signOut = function() {
+            User.signOut();
+        }
 
     };
  
     
     angular
         .module('blocChat')
-        .controller('MainCtrl', ['Room', 'Message', '$uibModal', '$cookies', MainCtrl]);
+        .controller('MainCtrl', ['Room', 'Message', '$uibModal', '$cookies', 'User', MainCtrl]);
 })();
 

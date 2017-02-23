@@ -1,7 +1,9 @@
 (function() {
-    function BlocChatCookies($cookies, $uibModal) {
+    function BlocChatCookies($cookies, $uibModal, User) {
         
-        var currentUser = $cookies.get('blocChatCurrentUser');
+        var currentUser = firebase.auth().currentUser;
+        
+        // change value of currentUser - should reflect firebase CurrentUser
         
         if (!currentUser || currentUser === '') {
             $uibModal.open({
@@ -21,5 +23,5 @@
     
     angular
         .module('blocChat')
-        .run(['$cookies', '$uibModal', BlocChatCookies]);
+        .run(['$cookies', '$uibModal', 'User', BlocChatCookies]);
 })();

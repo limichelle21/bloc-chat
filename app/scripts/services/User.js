@@ -67,7 +67,7 @@
     
         
         var signOut = function() {
-            authObj.$signOut(email, password).then(function() {
+            authObj.$signOut(email).then(function() {
                 alert("You have been signed out");
                 var currentUser = "";
             }).catch(function(error) {
@@ -75,6 +75,7 @@
             });
         }
          
+        // on page refresh, auto-log out? 
         
     
        return {

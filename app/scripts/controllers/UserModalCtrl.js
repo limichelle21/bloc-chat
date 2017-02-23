@@ -22,7 +22,7 @@ param (name)
             
           $cookies.blocChatCurrentUser = firebase.auth().currentUser;
             
-          console.log($cookies.blocChatCurrentUser); // returns the last signed in user, not currently signed up user
+          console.log(firebase.auth().currentUser); // returns the last signed in user, not currently signed up user
             
             $uibModalInstance.close();
         }
