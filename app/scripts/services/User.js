@@ -2,7 +2,7 @@
   function User($firebaseAuth, $firebaseArray) {
       
         var authObj = $firebaseAuth();
-        var firebaseUser = authObj.$getAuth();    // this is authData variable
+        var firebaseUser = authObj.$getAuth();    // this is authData variable, attempting to get data before user is authenticated
         var currentUser = "";
       
         var ref = firebase.database().ref().child("users");
@@ -23,6 +23,7 @@
       
         var authDataCallback = function(firebaseUser) {
             var userId = firebaseUser.uid;
+            var name = getName(firebaseUser);
             
             ref.child(userId).once("value", function(snapshot){
                 var ifExists = snapshot.exists();
@@ -31,14 +32,28 @@
                 } else {
                     users.$add({ 
                         userID: userId,
-                        provider: firebaseUser.provider
+                        username: name
                     });
                 }
             });
+        
         };
- 
+  // Create firebaseUser and save User's node         
+
+        var getName = function(firebaseUser) {
+            var name = ""
+            firebaseUser.updateProfile({
+                displayName: "Test Random"
+            }).then(function() {
+                name = firebaseUser.displayName;
+            }, function(error) {
+                console.log("error" + error.message)
+            });
+            console.log("name", name);
+            return name;
+        };
     
-// Create firebaseUser and save User's node      
+ 
       
         var signUpWithEmail = function(email, password) {
             authObj.$createUserWithEmailAndPassword(email, password).then(function(firebaseUser) {
@@ -51,7 +66,7 @@
                 alert("Error: " + error.message);
             });
             
-            console.log("currentUser", currentUser); // currentUser var returns blank
+            console.log("currentUser", currentUser.email); // currentUser var returns blank. issue to do with Auth obj being in n initialization state?
             
         }
                

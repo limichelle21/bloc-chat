@@ -19,11 +19,10 @@ param (name)
         this.signUp = function() {
           console.log("signed up " + this.email1);
           User.signUpWithEmail(this.email1, this.password1);
-            
+        
           $cookies.blocChatCurrentUser = firebase.auth().currentUser;
-            
-          console.log(firebase.auth().currentUser); // returns the last signed in user, not currently signed up user
-            
+          
+            console.log("firebaseUser", firebase.auth().currentUser); // returns the last signed in user, not currently signed up user
             $uibModalInstance.close();
         }
 
@@ -31,14 +30,13 @@ param (name)
         this.signIn = function() {
           console.log("signed in " + this.email2);
           User.signInWithEmail(this.email2, this.password2);
-          
             $cookies.blocChatCurrentUser = firebase.auth().currentUser;
-          
             $uibModalInstance.close();
         }
 
         this.signOut = function() {
           User.signOut();
+            // page refresh
         }
     
       }
